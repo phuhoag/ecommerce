@@ -1,0 +1,41 @@
+.news-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.news-time {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.news-content img {
+    max-width: 100%;
+    height: auto;
+}
+.news-content p {
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: left;
+
+
+   
+}
+.sidebar-section h5 {
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+.sidebar-news {
+    display: flex;
+    margin-bottom: 15px;
+}
+.sidebar-news img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.sidebar-news p {
+    font-size: 14px;
+    margin: 0;
+}

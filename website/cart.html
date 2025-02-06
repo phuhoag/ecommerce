@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giỏ hàng</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/website/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+
+
+    <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+        <div class = "container">
+            <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.html">
+                <img src = "/website/img/logo_color (1).png" alt = "logo">
+              
+            </a>
+            
+            
+            <div class = "order-lg-2 nav-btns   " style="transform: translateX(50px);">
+
+                
+                     
+        <input type="text " placeholder="Tìm sản phẩn..." class="position-relative rounded-5  form-control-sm " style="width: 200px; height: 35px; border: 1px solid transparent; background-color: rgba(207, 211, 203, .2);">
+                    
+                
+                
+               
+                <button type = "button" class = "btn position-relative" style="font-size: 20px;">
+                   
+                    <i class="bi bi-heart"></i>
+                   
+                </button>
+
+               
+               <a href="/website/login.html" class="text-reset" > 
+                <button type="button" class = "btn position-relative " style="font-size: 20px;">
+
+                <i class="bi bi-person-circle"></i>
+                    
+                </button></a>
+                
+                <button type = "button" class = "btn position-relative" style="font-size: 20px;">
+                   
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" style="font-size: 12px;" >2</span>
+                   
+                </button>
+              
+            </div>
+
+            <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+
+            <div class = "collapse navbar-collapse order-lg-1  mb-20px" id = "navMenu">
+                <ul class = "navbar-nav mx-auto text-center">
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark " href = "#header">Trang Chủ</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#collection">Bộ Sưu Tập</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#special">Đặc Biệt</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#blogs">Tin Tức</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#about">Về Chúng Tôi </a>
+                    </li>
+
+                    
+                   
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container cart-container" style="margin-top: 9rem;">
+        <div class="row">
+            
+            <div class="col-lg-8">
+                <h5>Giỏ  Hàng Của Bạn</h5>
+                <div class="cart-item d-flex">
+                    <img src="/website/img/anh1.jpg" alt="Product Image">
+                    <div class="item-details">
+                        <h6>Đầm tơ trắng cuốn hoa xèo</h6>
+                        <p>SKU: FS2401228DIWOBK</p>
+                        <p>2.498.000 VND</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-danger btn-sm">Remove</button>
+                    </div>
+                </div>
+
+                <div class="cart-item d-flex">
+                    <img src="/website/img/anh2.jpg" alt="Product Image">
+                    <div class="item-details">
+                        <h6>Sản phẩm khác</h6>
+                        <p>Số Lượng: 2</p>
+                        <p>2.498.000 VND</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-danger btn-sm">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-lg-4 ">
+                <div class="cart-summary">
+                    <p class="help-text">Chăm Sóc Khách Hàng : 0848606918</p>
+                    <hr>
+                    <div class="subtotal">
+                        <span>Giá sản phẩm</span>
+                        <span>2.498.000 VND</span>
+                    </div>
+                    <div class="shipping">
+                        <span>Phí vận chuyển</span>
+                        <span>50.000</span>
+                    </div>
+                    <hr>
+                    <div class="total">
+                        <span>Tổng tiền</span>
+                        <span>2.510.000 VND</span>
+                    </div>
+                    <hr>
+                    <p>Thanh toán qua</p>
+                    <div class="payment-options" style="cursor: pointer;">
+                        <img src="/website/img/visa.jpg" alt="Visa">
+                        <img src="/website/img/tech.png" alt="MasterCard">
+                        <img src="/website/img/play.png" alt="Amex">
+                        <img src="/website/img/mb.webp" alt="PayPal">
+                        <img src="/website/img/pay.png" alt="Apple Pay">
+                    </div>
+                </div>
+                <button id="payButton" class="btn btn-primary mt-3" style="transform: translateX(100px);">Thanh toán ngay</button>
+
+
+
+
+               
+
+
+
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+   
+
+    <footer class = "bg-white py-5 ">
+        <div class = "container">
+            <div class = "row text-white g-4">
+                <div class = "col-md-6 col-lg-3">
+                    <img src="/website/img/logo_color (1).png" alt="" class="w-50">
+                    <p class = "text-white text-muted mt-3">ELISE - THƯƠNG HIỆU ĐỒNG PHỤC ĐẲNG CẤP CHO CÁC TẬP ĐOÀN LỚN</p>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light text-dark">Links</h5>
+                    <ul class = "list-unstyled">
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Trang Chủ
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Bộ Sưu Tập
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Tin Tức 
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Về Chúng Tôi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3 text-dark">Contact Us</h5>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            201.Trần Phú Thừa Thiên Huế
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span class = "fw-light">
+                            11a8hoangkimquyphu@gmail.com
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            0848606918
+                        </span>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3 text-dark">Follow Us</h5>
+                    <div>
+                        <ul class = "list-unstyled d-flex">
+                            <li>
+                                <a href = "https://www.facebook.com/phu20023/" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </footer >
+
+    <!-- Bootstrap JS -->
+    <script>
+
+
+    
+        document.getElementById('payButton').addEventListener('click', function() {
+            alert('Thanh toán thành công!');
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
