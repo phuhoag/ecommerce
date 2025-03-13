@@ -29,7 +29,8 @@
 
                 
                      
-        <input type="text " placeholder="Tìm sản phẩn..." class="position-relative rounded-5  form-control-sm " style="width: 200px; height: 35px; border: 1px solid transparent; background-color: rgba(207, 211, 203, .2);">
+                <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." class="position-relative rounded-5 form-control-sm" style="width: 200px; height: 35px; border: 1px solid transparent; background-color: rgba(207, 211, 203, .2);" onkeyup="searchProduct()">
+
                     
                 
                 
@@ -48,12 +49,14 @@
                     
                 </button></a>
                 
-                <a href="./assets/cart/cart.html" class="user"><button type = "button" class = "btn position-relative" style="font-size: 20px;">
-                   
-                    <i class="bi bi-cart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" style="font-size: 12px;" >2</span>
-                   
-                </button></a>
+                <a href="/assets/cart/cart.html" class="user">
+                    <button type="button" class="btn position-relative" style="font-size: 20px;">
+                        <i class="bi bi-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" style="font-size: 12px;">0</span>
+                    </button>
+                </a>
+                
+                
               
             </div>
 
@@ -61,7 +64,7 @@
                 <span class = "navbar-toggler-icon"></span>
             </button>
 
-            <div class = "collapse navbar-collapse order-lg-1  mb-20px" id = "navMenu">
+            <div class = "collapse navbar-collapse order-lg-1  mb-20px" id = "navMenu" >
                 <ul class = "navbar-nav mx-auto text-center">
                     <li class = "nav-item px-2 py-2">
                         <a class = "nav-link text-uppercase text-dark " href = "#header">Trang Chủ</a>
@@ -78,6 +81,9 @@
                     <li class = "nav-item px-2 py-2">
                         <a class = "nav-link text-uppercase text-dark" href = "#about">Về Chúng Tôi </a>
                     </li>
+                    
+                    
+
 
                     
                    
@@ -247,9 +253,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="collection-list mt-4 row gx-0 gy-3" id="newArrivalList">
+                    <!-- Sản phẩm mới sẽ được thêm vào đây -->
+                </div>
             </div>
         </div>
+        
     </section>
+   
+   
+    
+    
+    
+
+   
+    
+    
    
     <section id = "special" class = "py-5">
         <div class = "container">
@@ -316,6 +336,7 @@
             </div>
         </div>
     </section>
+    
     
 
    
@@ -544,7 +565,21 @@
     <div class="  row col-12  text-center bg-white text-dark">
         <p>Bản Quyền Thuộc Về Công Ty TNHH Phú Coder</p>
     </div>
+    
+
+   
+
+    
+    
     <!--js-->
+    
+    
+   
+
+
+      
+      <script src="product.js"></script>
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

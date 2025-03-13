@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sản phẩm</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div id="login-box" class="login-container">
+      <h3>Đăng nhập quản trị</h3>
+      <input
+        type="text"
+        id="admin-user"
+        placeholder="Tên đăng nhập"
+        class="form-control mb-2"
+      />
+      <input
+        type="password"
+        id="admin-pass"
+        placeholder="Mật khẩu"
+        class="form-control mb-2"
+      />
+      <button onclick="checkLogin()" class="btn btn-primary">Đăng nhập</button>
+      <p id="login-error" class="text-danger mt-2 d-none">
+        Sai tài khoản hoặc mật khẩu!
+      </p>
+    </div>
+
+    <script>
+      function checkLogin() {
+        const user = document.getElementById("admin-user").value;
+        const pass = document.getElementById("admin-pass").value;
+
+        if (user === "admin" && pass === "123456") {
+          localStorage.setItem("isAdmin", "true"); // Lưu trạng thái đăng nhập
+          document.getElementById("login-box").style.display = "none"; // Ẩn login box
+          document.querySelector(".container").style.display = "block"; // Hiện trang quản trị
+        } else {
+          document.getElementById("login-error").classList.remove("d-none"); // Hiện lỗi
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (localStorage.getItem("isAdmin") === "true") {
+          document.getElementById("login-box").style.display = "none";
+          document.querySelector(".container").style.display = "block";
+        } else {
+          document.querySelector(".container").style.display = "none";
+        }
+      });
+    </script>
+
+    <div class="container mt-5">
+      <h2 class="text-center">Quản lý Sản phẩm</h2>
+      <div id="alert-box" class="alert d-none" role="alert"></div>
+      <form id="product-form" class="mb-3">
+        <p>ID sản phẩm</p>
+        <input type="text" id="product-id" />
+        <div class="mb-3">
+          <label for="product-name" class="form-label">Tên sản phẩm</label>
+          <input type="text" id="product-name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="product-price" class="form-label">Giá</label>
+          <input
+            type="number"
+            id="product-price"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="product-img" class="form-label">Hình ảnh</label>
+          <input
+            type="file"
+            id="product-img"
+            class="form-control"
+            accept="image/*"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+      </form>
+      <h3 class="mt-4">Danh sách sản phẩm</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Hình ảnh</th>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="product-table"></tbody>
+      </table>
+    </div>
+    <script src="/product.js"></script>
+  </body>
+</html>

@@ -40,12 +40,13 @@
                         
                     </button></a>
 
-                    <button type = "button" class = "btn position-relative" style="font-size: 20px;">
-                   
-                        <i class="bi bi-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" style="font-size: 12px;" >2</span>
-                       
-                    </button>
+                    <a href="/assets/cart/cart.html" class="user">
+                        <button type="button" class="btn position-relative" style="font-size: 20px;">
+                            <i class="bi bi-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" style="font-size: 12px;">0</span>
+                        </button>
+                    </a>
+                    
                   
             </div>
 
@@ -139,7 +140,7 @@
 
                 
                 <div class="my-4">
-                    <a href="../cart/cart.html"><button class="btn btn-custom me-3">Thêm vào giỏ</button></a>
+                    <button id="addToCartButton" class="btn btn-custom me-3">Thêm vào giỏ</button>
                     <button class="btn btn-outline-dark me-3">Thêm vào yêu thích</button>
                    
                 </div>
@@ -494,7 +495,10 @@
     <!--js-->
 
 
-    <script src="../login/login.js"></script>
+    <script src="/product.js"></script>
+
+
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../detail/detail.html"></script>
 </body>
