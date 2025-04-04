@@ -42,12 +42,14 @@ function saveProduct() {
 
 function saveToLocalStorage(id, name, price, imgSrc) {
   let products = JSON.parse(localStorage.getItem("products")) || [];
+  let message = "Sản phẩm đã được thêm thành công!";
 
   if (id) {
     let index = products.findIndex((p) => p.id === id);
     if (index !== -1) {
       imgSrc = imgSrc || products[index].imgSrc;
       products[index] = { id, name, price, imgSrc };
+      message = "Sản phẩm đã được cập nhật!";
     } else {
       products.push({ id: Date.now().toString(), name, price, imgSrc });
     }
@@ -59,6 +61,8 @@ function saveToLocalStorage(id, name, price, imgSrc) {
   loadProducts();
   loadNewArrival();
   if (productForm) productForm.reset();
+
+  alert(message);
 }
 
 function loadProducts() {
@@ -92,11 +96,19 @@ function editProduct(id) {
 }
 
 function deleteProduct(id) {
-  let products = JSON.parse(localStorage.getItem("products")) || [];
-  products = products.filter((p) => p.id !== id);
-  localStorage.setItem("products", JSON.stringify(products));
-  loadProducts();
-  loadNewArrival();
+  if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    let index = products.findIndex((product) => product.id === id);
+    if (index === -1) {
+      console.error("Không tìm thấy sản phẩm để xóa:", id);
+      return;
+    }
+
+    products.splice(index, 1);
+    localStorage.setItem("products", JSON.stringify(products));
+    loadProducts();
+  }
 }
 
 function loadNewArrival() {
@@ -107,7 +119,7 @@ function loadNewArrival() {
 
   newArrivalList.innerHTML = "";
 
-  products.slice(-4).forEach((product) => {
+  products.slice(-20).forEach((product) => {
     let productCard = `
         <div class="col-md-6 col-lg-4 col-xl-3 p-2">
             <div class="collection-img position-relative overflow-hidden">
@@ -130,10 +142,10 @@ document
     let quantity = parseInt(document.getElementById("quantity").value) || 1;
     const product = {
       id: "FS2401228DIWOBK",
-      name: "Đầm tơ trắng cuốn hoa xèo",
+      name: "ĐẦM TƠ TRẮNG CUỐN HOA XÒE",
       price: 2498000,
-      image: "../img/anh1.jpg",
-      quantity: quantity, // Lấy số lượng từ input
+      image: "../img/el1.jpg",
+      quantity: quantity,
     };
     addToCart(product);
   });
@@ -145,7 +157,7 @@ function addToCart(product) {
   const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
-    existingProduct.quantity += product.quantity; // Cộng dồn số lượng thay vì chỉ tăng 1
+    existingProduct.quantity += product.quantity;
   } else {
     cart.push(product);
   }

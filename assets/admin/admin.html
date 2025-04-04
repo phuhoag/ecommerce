@@ -32,30 +32,29 @@
     </div>
 
     <script>
-      function checkLogin() {
-        const user = document.getElementById("admin-user").value;
-        const pass = document.getElementById("admin-pass").value;
-
-        if (user === "admin" && pass === "123456") {
-          localStorage.setItem("isAdmin", "true"); // Lưu trạng thái đăng nhập
-          document.getElementById("login-box").style.display = "none"; // Ẩn login box
-          document.querySelector(".container").style.display = "block"; // Hiện trang quản trị
-        } else {
-          document.getElementById("login-error").classList.remove("d-none"); // Hiện lỗi
-        }
-      }
-
       document.addEventListener("DOMContentLoaded", function () {
-        if (localStorage.getItem("isAdmin") === "true") {
-          document.getElementById("login-box").style.display = "none";
-          document.querySelector(".container").style.display = "block";
-        } else {
-          document.querySelector(".container").style.display = "none";
-        }
+        localStorage.removeItem("isAdmin");
+
+        document.getElementById("login-box").style.display = "block";
+        document.querySelector(".container").style.display = "none";
       });
+
+  function checkLogin() {
+  const user = document.getElementById("admin-user").value;
+  const pass = document.getElementById("admin-pass").value;
+
+  if (user === "admin" && pass === "123456") {
+    document.getElementById("login-box").style.display = "none";
+    document.querySelector(".container").style.display = "block"; 
+    document.getElementById("account-container").style.display = "block"; 
+  } else {
+    document.getElementById("login-error").classList.remove("d-none");
+  }
+}
+
     </script>
 
-    <div class="container mt-5">
+    <div class="container mt-5" style="display: none">
       <h2 class="text-center">Quản lý Sản phẩm</h2>
       <div id="alert-box" class="alert d-none" role="alert"></div>
       <form id="product-form" class="mb-3">
@@ -99,6 +98,91 @@
         <tbody id="product-table"></tbody>
       </table>
     </div>
+
+    <div class="container mt-5" id="account-container" style="display: none;">
+      <h2 class="text-center">Quản lý Tài khoản</h2>
+      <form id="account-form" class="mb-3">
+        <div class="mb-3">
+          <label for="account-username" class="form-label">Tên đăng nhập</label>
+          <input type="text" id="account-username" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="account-password" class="form-label">Mật khẩu</label>
+          <input type="password" id="account-password" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm/Sửa</button>
+      </form>
+      <h3 class="mt-4">Danh sách Tài khoản</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Tên đăng nhập</th>
+            <th>Mật khẩu</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="account-table"></tbody>
+      </table>
+    </div>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      loadAccounts();
+    });
+    
+    function loadAccounts() {
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      const table = document.getElementById("account-table");
+      table.innerHTML = "";
+      users.forEach((user, index) => {
+        table.innerHTML += `<tr>
+          <td>${user.username}</td>
+          <td>${user.password}</td>
+          <td>
+            <button class="btn btn-warning" onclick="editAccount(${index})">Sửa</button>
+            <button class="btn btn-danger" onclick="deleteAccount(${index})">Xóa</button>
+          </td>
+        </tr>`;
+      });
+    }
+    
+    document.getElementById("account-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const username = document.getElementById("account-username").value;
+      const password = document.getElementById("account-password").value;
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      const index = users.findIndex(user => user.username === username);
+      if (index >= 0) {
+        users[index].password = password;
+        alert("Cập nhật tài khoản thành công!");
+      } else {
+        users.push({ username, password });
+        alert("Thêm tài khoản thành công!");
+      }
+      localStorage.setItem("users", JSON.stringify(users));
+      loadAccounts();
+    });
+    
+    function editAccount(index) {
+      let users = JSON.parse(localStorage.getItem("users"));
+      document.getElementById("account-username").value = users[index].username;
+      document.getElementById("account-password").value = users[index].password;
+    }
+    
+    function deleteAccount(index) {
+      if (confirm("Bạn có chắc chắn muốn xóa tài khoản này không?")) {
+        let users = JSON.parse(localStorage.getItem("users"));
+        users.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        loadAccounts();
+        alert("Xóa tài khoản thành công!");
+      }
+    }
+    </script>
+    
+    
     <script src="/product.js"></script>
+    
+    
   </body>
 </html>

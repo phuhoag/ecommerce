@@ -6,11 +6,12 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 :root {
   --pink: #e5345b;
-  --color: red;
 }
 
 .btn:not(.nav-btns button) {
@@ -20,7 +21,6 @@ html {
   border-radius: 25px;
   border: 1px solid rgb(85, 85, 85);
 }
-
 .btn:not(.nav-btns button):hover {
   background-color: var(--pink);
   color: #fff;
@@ -97,11 +97,19 @@ html {
 }
 
 /* offers */
-
+#offers {
+  background: url(/website/img/cv-wos.jpg) center/cover no-repeat;
+}
 #offers .row {
   min-height: 60vh;
 }
-
+.offers-content span {
+  font-size: 28px;
+}
+.offers-content h2 {
+  font-size: 60px;
+  font-family: var(--lg-font);
+}
 .offers-content .btn {
   border-color: transparent !important;
 }
@@ -166,28 +174,72 @@ footer a:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-
   cursor: pointer;
 }
 
-#google-map {
-  background: url(/website/img/map.PNG) center/cover no-repeat;
-}
-#google-map .row {
-  min-height: 70vh;
+.product-container {
+  display: flex;
+  padding: 20px;
 }
 
-#offers {
-  background: url(../img/bb1.jpg) center/cover no-repeat;
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  width: 75%;
 }
 
-.equal-images {
+body {
+  font-family: Arial, sans-serif;
+}
+.product-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.product-price {
+  color: #333;
+  font-size: 1.25rem;
+}
+.sku {
+  color: #999;
+  font-size: 0.875rem;
+}
+.btn-custom {
+  background-color: #000;
+  color: #fff;
+}
+.btn-custom:hover {
+  background-color: #333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+.product-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.product-price {
+  color: #333;
+  font-size: 1.25rem;
+}
+.sku {
+  color: #999;
+  font-size: 0.875rem;
+}
+.btn-custom {
+  background-color: #000;
+  color: #fff;
+}
+.btn-custom:hover {
+  background-color: #333;
+}
+
+.img-mt-ct img {
   height: 300px;
-  object-fit: cover;
-  width: 100%;
-  margin-bottom: 40px;
 }
-
-.user:hover {
-  color: #000;
+.thong-tin-ct {
+  border-bottom: 2px solid rgb(220, 220, 220);
+}
+.khach-hang-dg {
+  border-bottom: 2px solid rgb(235, 235, 235);
 }
